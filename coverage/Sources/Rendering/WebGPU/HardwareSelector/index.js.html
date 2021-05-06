@@ -32,14 +32,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/76</span>
+                <span class='fraction'>0/64</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>0/12</span>
             </div>
         
             
@@ -492,7 +492,10 @@
 <a name='L433'></a><a href='#L433'>433</a>
 <a name='L434'></a><a href='#L434'>434</a>
 <a name='L435'></a><a href='#L435'>435</a>
-<a name='L436'></a><a href='#L436'>436</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L436'></a><a href='#L436'>436</a>
+<a name='L437'></a><a href='#L437'>437</a>
+<a name='L438'></a><a href='#L438'>438</a>
+<a name='L439'></a><a href='#L439'>439</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -546,7 +549,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -560,9 +562,11 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -768,12 +772,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -981,7 +987,6 @@ function <span class="fstat-no" title="function not covered" >getPixelInformatio
     }
 &nbsp;
     const info = <span class="cstat-no" title="statement not covered" >{};</span>
-<span class="cstat-no" title="statement not covered" >    info.valid = true;</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    info.propID = actorid;</span>
 &nbsp;
@@ -995,9 +1000,11 @@ function <span class="fstat-no" title="function not covered" >getPixelInformatio
 <span class="cstat-no" title="statement not covered" >      compositeID = 0;</span>
     }
 <span class="cstat-no" title="statement not covered" >    info.compositeID = compositeID;</span>
+&nbsp;
 <span class="cstat-no" title="statement not covered" >    if (buffdata.captureZValues) {</span>
       const offset =
-<span class="cstat-no" title="statement not covered" >        inDisplayPosition[1] * buffdata.zbufferBufferWidth +</span>
+<span class="cstat-no" title="statement not covered" >        (buffdata.height - inDisplayPosition[1] - 1) *</span>
+          buffdata.zbufferBufferWidth +
         inDisplayPosition[0];
 <span class="cstat-no" title="statement not covered" >      info.zValue = buffdata.depthValues[offset];</span>
 <span class="cstat-no" title="statement not covered" >      info.displayPosition = inDisplayPosition;</span>
@@ -1015,7 +1022,7 @@ function <span class="fstat-no" title="function not covered" >getPixelInformatio
     0,
     outSelectedPosition
   );
-<span class="cstat-no" title="statement not covered" >  if (info &amp;&amp; info.valid) {</span>
+<span class="cstat-no" title="statement not covered" >  if (info) {</span>
 <span class="cstat-no" title="statement not covered" >    return info;</span>
   }
 <span class="cstat-no" title="statement not covered" >  for (let dist = <span class="cstat-no" title="statement not covered" >1;</span> dist &lt; maxDist; ++dist) {</span>
@@ -1034,7 +1041,7 @@ function <span class="fstat-no" title="function not covered" >getPixelInformatio
           0,
           outSelectedPosition
         );
-<span class="cstat-no" title="statement not covered" >        if (info &amp;&amp; info.valid) {</span>
+<span class="cstat-no" title="statement not covered" >        if (info) {</span>
 <span class="cstat-no" title="statement not covered" >          return info;</span>
         }
       }
@@ -1045,7 +1052,7 @@ function <span class="fstat-no" title="function not covered" >getPixelInformatio
         0,
         outSelectedPosition
       );
-<span class="cstat-no" title="statement not covered" >      if (info &amp;&amp; info.valid) {</span>
+<span class="cstat-no" title="statement not covered" >      if (info) {</span>
 <span class="cstat-no" title="statement not covered" >        return info;</span>
       }
     }
@@ -1064,7 +1071,7 @@ function <span class="fstat-no" title="function not covered" >getPixelInformatio
           0,
           outSelectedPosition
         );
-<span class="cstat-no" title="statement not covered" >        if (info &amp;&amp; info.valid) {</span>
+<span class="cstat-no" title="statement not covered" >        if (info) {</span>
 <span class="cstat-no" title="statement not covered" >          return info;</span>
         }
       }
@@ -1075,7 +1082,7 @@ function <span class="fstat-no" title="function not covered" >getPixelInformatio
         0,
         outSelectedPosition
       );
-<span class="cstat-no" title="statement not covered" >      if (info &amp;&amp; info.valid) {</span>
+<span class="cstat-no" title="statement not covered" >      if (info) {</span>
 <span class="cstat-no" title="statement not covered" >        return info;</span>
       }
     }
@@ -1152,7 +1159,7 @@ function <span class="fstat-no" title="function not covered" >generateSelectionW
         0,
         outSelectedPosition
       );
-<span class="cstat-no" title="statement not covered" >      if (info &amp;&amp; info.valid) {</span>
+<span class="cstat-no" title="statement not covered" >      if (info) {</span>
         const hash = <span class="cstat-no" title="statement not covered" >getInfoHash(info);</span>
 <span class="cstat-no" title="statement not covered" >        if (!dataMap.has(hash)) {</span>
 <span class="cstat-no" title="statement not covered" >          dataMap.set(hash, {</span>
@@ -1202,26 +1209,28 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUHardwareS
 <span class="cstat-no" title="statement not covered" >      return false;</span>
     }
 &nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!model.WebGPURenderWindow.getInitialized()) {</span>
+<span class="cstat-no" title="statement not covered" >      model.WebGPURenderWindow.initialize();</span>
+<span class="cstat-no" title="statement not covered" >      await new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >        model.WebGPURenderWindow.onInitialized(resolve)</span>
+      );
+    }
+&nbsp;
     const webGPURenderer = <span class="cstat-no" title="statement not covered" >model.WebGPURenderWindow.getViewNodeFor(renderer);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    if (!webGPURenderer) {</span>
 <span class="cstat-no" title="statement not covered" >      return false;</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (!model.WebGPURenderWindow.getInitialized()) {</span>
-<span class="cstat-no" title="statement not covered" >      model.WebGPURenderWindow.initialize();</span>
-<span class="cstat-no" title="statement not covered" >      return false;</span>
-    }
-&nbsp;
     // Initialize renderer for selection.
     // change the renderer's background to black, which will indicate a miss
-    const originalBackground = <span class="cstat-no" title="statement not covered" >renderer.getBackground();</span>
-<span class="cstat-no" title="statement not covered" >    renderer.setBackground(0.0, 0.0, 0.0);</span>
+    const originalSuppress = <span class="cstat-no" title="statement not covered" >webGPURenderer.getSuppressClear();</span>
+<span class="cstat-no" title="statement not covered" >    webGPURenderer.setSuppressClear(true);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    model._selectionPass.traverse(model.WebGPURenderWindow, webGPURenderer);</span>
 &nbsp;
     // restore original background
-<span class="cstat-no" title="statement not covered" >    renderer.setBackground(originalBackground);</span>
+<span class="cstat-no" title="statement not covered" >    webGPURenderer.setSuppressClear(originalSuppress);</span>
 &nbsp;
     const device = <span class="cstat-no" title="statement not covered" >model.WebGPURenderWindow.getDevice();</span>
     const texture = <span class="cstat-no" title="statement not covered" >model._selectionPass.getColorTexture();</span>
@@ -1369,7 +1378,7 @@ export default { newInstance, extend };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue May 04 2021 22:17:34 GMT+0000 (Coordinated Universal Time)
+                at Thu May 06 2021 17:37:16 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>
