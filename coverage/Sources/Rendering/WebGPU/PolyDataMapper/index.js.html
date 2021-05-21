@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">2.98% </span>
+                <span class="strong">3.03% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/336</span>
+                <span class='fraction'>10/330</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">3.1% </span>
+                <span class="strong">3.14% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/323</span>
+                <span class='fraction'>10/318</span>
             </div>
         
             
@@ -838,19 +838,7 @@
 <a name='L779'></a><a href='#L779'>779</a>
 <a name='L780'></a><a href='#L780'>780</a>
 <a name='L781'></a><a href='#L781'>781</a>
-<a name='L782'></a><a href='#L782'>782</a>
-<a name='L783'></a><a href='#L783'>783</a>
-<a name='L784'></a><a href='#L784'>784</a>
-<a name='L785'></a><a href='#L785'>785</a>
-<a name='L786'></a><a href='#L786'>786</a>
-<a name='L787'></a><a href='#L787'>787</a>
-<a name='L788'></a><a href='#L788'>788</a>
-<a name='L789'></a><a href='#L789'>789</a>
-<a name='L790'></a><a href='#L790'>790</a>
-<a name='L791'></a><a href='#L791'>791</a>
-<a name='L792'></a><a href='#L792'>792</a>
-<a name='L793'></a><a href='#L793'>793</a>
-<a name='L794'></a><a href='#L794'>794</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L782'></a><a href='#L782'>782</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1142,23 +1130,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1434,6 +1409,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -1935,24 +1911,11 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUPolyDataM
 &nbsp;
     const fDesc = <span class="cstat-no" title="statement not covered" >pipeline.getShaderDescription('fragment');</span>
 <span class="cstat-no" title="statement not covered" >    code = fDesc.getCode();</span>
-    const tcinput = <span class="cstat-no" title="statement not covered" >[];</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    for (let t = <span class="cstat-no" title="statement not covered" >0;</span> t &lt; model.textures.length; t++) {</span>
-      const tcount = <span class="cstat-no" title="statement not covered" >pipeline.getBindGroupLayoutCount(`Texture${t}`);</span>
-<span class="cstat-no" title="statement not covered" >      tcinput.push(</span>
-        `[[binding(0), group(${tcount})]] var Texture${t}: texture_2d&lt;f32&gt;;`
-      );
-<span class="cstat-no" title="statement not covered" >      tcinput.push(</span>
-        `[[binding(1), group(${tcount})]] var Sampler${t}: sampler;`
-      );
-    }
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    code = vtkWebGPUShaderCache.substitute(code, '//VTK::TCoord::Dec', tcinput)</span>
-      .result;
-&nbsp;
+    // todo handle multiple textures? Blend multiply ?
 <span class="cstat-no" title="statement not covered" >    if (model.textures.length) {</span>
 <span class="cstat-no" title="statement not covered" >      code = vtkWebGPUShaderCache.substitute(code, '//VTK::TCoord::Impl', [</span>
-        'var tcolor: vec4&lt;f32&gt; = textureSample(Texture0, Sampler0, input.tcoordVS);',
+        'var tcolor: vec4&lt;f32&gt; = textureSample(Texture0, Texture0Sampler, input.tcoordVS);',
         'computedColor = computedColor*tcolor;',
       ]).result;
     }
@@ -2230,6 +2193,7 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUPolyDataM
 <span class="cstat-no" title="statement not covered" >    for (let i = <span class="cstat-no" title="statement not covered" >model.textures.length - 1;</span> i &gt;= 0; i--) {</span>
 <span class="cstat-no" title="statement not covered" >      if (!usedTextures[i]) {</span>
 <span class="cstat-no" title="statement not covered" >        model.textures.splice(i, 1);</span>
+<span class="cstat-no" title="statement not covered" >        model.textureViews.splice(i, 1);</span>
       }
     }
   };
@@ -2443,7 +2407,7 @@ registerOverride('vtkMapper', newInstance);
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon May 17 2021 19:54:54 GMT+0000 (Coordinated Universal Time)
+                at Fri May 21 2021 11:59:10 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

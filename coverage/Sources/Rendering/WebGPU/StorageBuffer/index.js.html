@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">3.17% </span>
+                <span class="strong">3.13% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/126</span>
+                <span class='fraction'>4/128</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">3.45% </span>
+                <span class="strong">3.39% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/116</span>
+                <span class='fraction'>4/118</span>
             </div>
         
             
@@ -318,14 +318,7 @@
 <a name='L259'></a><a href='#L259'>259</a>
 <a name='L260'></a><a href='#L260'>260</a>
 <a name='L261'></a><a href='#L261'>261</a>
-<a name='L262'></a><a href='#L262'>262</a>
-<a name='L263'></a><a href='#L263'>263</a>
-<a name='L264'></a><a href='#L264'>264</a>
-<a name='L265'></a><a href='#L265'>265</a>
-<a name='L266'></a><a href='#L266'>266</a>
-<a name='L267'></a><a href='#L267'>267</a>
-<a name='L268'></a><a href='#L268'>268</a>
-<a name='L269'></a><a href='#L269'>269</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L262'></a><a href='#L262'>262</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -374,16 +367,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -506,7 +489,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -520,8 +502,14 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -549,7 +537,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -562,12 +549,11 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -641,17 +627,7 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUStorageBu
         usage: BufferUsage.Storage,
       };
 <span class="cstat-no" title="statement not covered" >      model._buffer = device.getBufferManager().getBuffer(req);</span>
-<span class="cstat-no" title="statement not covered" >      model.bindGroup = device.getHandle().createBindGroup({</span>
-        layout: publicAPI.getBindGroupLayout(device),
-        entries: [
-          {
-            binding: model.binding,
-            resource: {
-              buffer: model._buffer.getHandle(),
-            },
-          },
-        ],
-      });
+<span class="cstat-no" title="statement not covered" >      model.bindGroupTime.modified();</span>
 <span class="cstat-no" title="statement not covered" >      model._sendTime.modified();</span>
 <span class="cstat-no" title="statement not covered" >      return;</span>
     }
@@ -769,8 +745,7 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUStorageBu
   };
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  publicAPI.getSendTime = <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >model.sendTime.getMTime();</span></span>
-<span class="cstat-no" title="statement not covered" >  publicAPI.getShaderCode = <span class="fstat-no" title="function not covered" >(p</span>ipeline) =&gt; {</span>
-    const bgroup = <span class="cstat-no" title="statement not covered" >pipeline.getBindGroupLayoutCount(model.name);</span>
+<span class="cstat-no" title="statement not covered" >  publicAPI.getShaderCode = <span class="fstat-no" title="function not covered" >(b</span>inding, group) =&gt; {</span>
     const lines = <span class="cstat-no" title="statement not covered" >[`struct ${model.name}StructEntry\n{`];</span>
 <span class="cstat-no" title="statement not covered" >    for (let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; model.bufferEntries.length; i++) {</span>
       const entry = <span class="cstat-no" title="statement not covered" >model.bufferEntries[i];</span>
@@ -782,14 +757,20 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUStorageBu
 {
   values: array&lt;${model.name}StructEntry&gt;;
 };
-[[binding(${model.binding}), group(${bgroup})]] var&lt;storage&gt; ${model.name}: [[access(read)]] ${model.name}Struct;
+[[binding(${binding}), group(${group})]] var&lt;storage&gt; ${model.name}: [[access(read)]] ${model.name}Struct;
 `);
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return lines.join('\n');</span>
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  publicAPI.getBindGroupLayout = <span class="fstat-no" title="function not covered" >(d</span>evice) =&gt;</span>
-<span class="cstat-no" title="statement not covered" >    device.getBindGroupLayout(model.bindGroupDescription);</span>
+<span class="cstat-no" title="statement not covered" >  publicAPI.getBindGroupEntry = <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+    const foo = <span class="cstat-no" title="statement not covered" >{</span>
+      resource: {
+        buffer: model._buffer.getHandle(),
+      },
+    };
+<span class="cstat-no" title="statement not covered" >    return foo;</span>
+  };
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  publicAPI.clearData = <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    model.numberOfInstances = 0;</span>
@@ -811,7 +792,6 @@ const DEFAULT_VALUES = {
   bufferEntryNames: null,
   sizeInBytes: 0,
   name: null,
-  binding: 0,
   numberOfInstances: 1,
 };
 &nbsp;
@@ -830,21 +810,20 @@ export function <span class="fstat-no" title="function not covered" >extend(</sp
 <span class="cstat-no" title="statement not covered" >  model._sendTime = {};</span>
 <span class="cstat-no" title="statement not covered" >  macro.obj(model._sendTime, { mtime: 0 });</span>
 &nbsp;
+<span class="cstat-no" title="statement not covered" >  model.bindGroupTime = {};</span>
+<span class="cstat-no" title="statement not covered" >  macro.obj(model.bindGroupTime, { mtime: 0 });</span>
+&nbsp;
   // default SSBO desc
-<span class="cstat-no" title="statement not covered" >  model.bindGroupDescription = model.bindGroupDescription || {</span>
-    entries: [
-      {
-        buffer: {
-          type: 'read-only-storage',
-        },
-      },
-    ],
+<span class="cstat-no" title="statement not covered" >  model.bindGroupLayoutEntry = model.bindGroupLayoutEntry || {</span>
+    buffer: {
+      type: 'read-only-storage',
+    },
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  macro.get(publicAPI, model, ['bindGroup']);</span>
+<span class="cstat-no" title="statement not covered" >  macro.get(publicAPI, model, ['bindGroupTime']);</span>
 <span class="cstat-no" title="statement not covered" >  macro.setGet(publicAPI, model, [</span>
-    'binding',
     'device',
+    'bindGroupLayoutEntry',
     'name',
     'numberOfInstances',
     'sizeInBytes',
@@ -868,7 +847,7 @@ export default { newInstance, extend };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon May 17 2021 19:54:54 GMT+0000 (Coordinated Universal Time)
+                at Fri May 21 2021 11:59:10 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>
