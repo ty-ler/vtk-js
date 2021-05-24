@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">4.11% </span>
+                <span class="strong">3.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/73</span>
+                <span class='fraction'>3/82</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/32</span>
+                <span class='fraction'>0/38</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">4.17% </span>
+                <span class="strong">3.7% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/72</span>
+                <span class='fraction'>3/81</span>
             </div>
         
             
@@ -282,7 +282,26 @@
 <a name='L223'></a><a href='#L223'>223</a>
 <a name='L224'></a><a href='#L224'>224</a>
 <a name='L225'></a><a href='#L225'>225</a>
-<a name='L226'></a><a href='#L226'>226</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L226'></a><a href='#L226'>226</a>
+<a name='L227'></a><a href='#L227'>227</a>
+<a name='L228'></a><a href='#L228'>228</a>
+<a name='L229'></a><a href='#L229'>229</a>
+<a name='L230'></a><a href='#L230'>230</a>
+<a name='L231'></a><a href='#L231'>231</a>
+<a name='L232'></a><a href='#L232'>232</a>
+<a name='L233'></a><a href='#L233'>233</a>
+<a name='L234'></a><a href='#L234'>234</a>
+<a name='L235'></a><a href='#L235'>235</a>
+<a name='L236'></a><a href='#L236'>236</a>
+<a name='L237'></a><a href='#L237'>237</a>
+<a name='L238'></a><a href='#L238'>238</a>
+<a name='L239'></a><a href='#L239'>239</a>
+<a name='L240'></a><a href='#L240'>240</a>
+<a name='L241'></a><a href='#L241'>241</a>
+<a name='L242'></a><a href='#L242'>242</a>
+<a name='L243'></a><a href='#L243'>243</a>
+<a name='L244'></a><a href='#L244'>244</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -351,6 +370,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -359,6 +385,16 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -510,6 +546,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import macro from 'vtk.js/Sources/macro';
 import vtkWebGPUBufferManager from 'vtk.js/Sources/Rendering/WebGPU/BufferManager';
 import vtkWebGPUTextureView from 'vtk.js/Sources/Rendering/WebGPU/TextureView';
+import vtkWebGPUTypes from 'vtk.js/Sources/Rendering/WebGPU/Types';
 &nbsp;
 const { BufferUsage } = vtkWebGPUBufferManager;
 &nbsp;
@@ -566,32 +603,49 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUTexture(<
   // set the data
 <span class="cstat-no" title="statement not covered" >  publicAPI.writeImageData = <span class="fstat-no" title="function not covered" >(r</span>eq) =&gt; {</span>
     let bufferBytesPerRow = <span class="cstat-no" title="statement not covered" >model.width * 4;</span>
-<span class="cstat-no" title="statement not covered" >    if (req.dataArray) {</span>
+<span class="cstat-no" title="statement not covered" >    if (req.dataArray || req.nativeArray) {</span>
       // create and write the buffer
       const buffRequest = <span class="cstat-no" title="statement not covered" >{</span>
-        dataArray: req.dataArray,
-        time: req.dataArray.getMTime(),
         /* eslint-disable no-undef */
         usage: BufferUsage.Texture,
         /* eslint-enable no-undef */
+        // todo this needs to be computed from the texture format
         format: 'unorm8x4',
       };
 &nbsp;
+<span class="cstat-no" title="statement not covered" >      if (req.dataArray) {</span>
+<span class="cstat-no" title="statement not covered" >        buffRequest.dataArray = req.dataArray;</span>
+<span class="cstat-no" title="statement not covered" >        buffRequest.time = req.dataArray.getMTime();</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (req.nativeArray) {</span>
+<span class="cstat-no" title="statement not covered" >        buffRequest.nativeArray = req.nativeArray;</span>
+      }
+&nbsp;
       // bytesPerRow must be a multiple of 256 so we might need to rebuild
-      // the data here before passing to the buffer. If it is unorm8x4 then
+      // the data here before passing to the buffer. e.g. if it is unorm8x4 then
       // we need to have width be a multiple of 64
-<span class="cstat-no" title="statement not covered" >      if (model.width % 64) {</span>
+      const tDetails = <span class="cstat-no" title="statement not covered" >vtkWebGPUTypes.getDetailsFromTextureFormat(model.format);</span>
+      const currWidthInBytes = <span class="cstat-no" title="statement not covered" >model.width * tDetails.stride;</span>
+<span class="cstat-no" title="statement not covered" >      if (currWidthInBytes % 256) {</span>
         const oArray = <span class="cstat-no" title="statement not covered" >req.dataArray.getData();</span>
-        const bufferWidth = <span class="cstat-no" title="statement not covered" >64 * Math.floor((model.width + 63) / 64);</span>
-        const nArray = <span class="cstat-no" title="statement not covered" >new Uint8Array(bufferWidth * model.height * 4);</span>
+        const bufferWidthInBytes =
+<span class="cstat-no" title="statement not covered" >          256 * Math.floor((currWidthInBytes + 255) / 256);</span>
+        const bufferWidth = <span class="cstat-no" title="statement not covered" >bufferWidthInBytes / oArray.BYTES_PER_ELEMENT;</span>
+        const oWidth = <span class="cstat-no" title="statement not covered" >currWidthInBytes / oArray.BYTES_PER_ELEMENT;</span>
+&nbsp;
+        const nArray = <span class="cstat-no" title="statement not covered" >macro.newTypedArray(</span>
+          oArray.name,
+          bufferWidth * model.height
+        );
+&nbsp;
 <span class="cstat-no" title="statement not covered" >        for (let v = <span class="cstat-no" title="statement not covered" >0;</span> v &lt; model.height; v++) {</span>
 <span class="cstat-no" title="statement not covered" >          nArray.set(</span>
-            oArray.subarray(v * 4 * model.width, (v + 1) * 4 * model.width),
-            v * 4 * bufferWidth
+            oArray.subarray(v * oWidth, (v + 1) * oWidth),
+            v * bufferWidth
           );
         }
 <span class="cstat-no" title="statement not covered" >        buffRequest.nativeArray = nArray;</span>
-<span class="cstat-no" title="statement not covered" >        bufferBytesPerRow = bufferWidth * 4;</span>
+<span class="cstat-no" title="statement not covered" >        bufferBytesPerRow = bufferWidthInBytes;</span>
       }
       const buff = <span class="cstat-no" title="statement not covered" >model.device.getBufferManager().getBuffer(buffRequest);</span>
 <span class="cstat-no" title="statement not covered" >      model.buffer = buff;</span>
@@ -739,7 +793,7 @@ export default { newInstance, extend };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri May 21 2021 15:17:16 GMT+0000 (Coordinated Universal Time)
+                at Mon May 24 2021 19:15:41 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

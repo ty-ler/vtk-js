@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">3.31% </span>
+                <span class="strong">3.25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/121</span>
+                <span class='fraction'>4/123</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">3.39% </span>
+                <span class="strong">3.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/118</span>
+                <span class='fraction'>4/120</span>
             </div>
         
             
@@ -441,7 +441,8 @@
 <a name='L382'></a><a href='#L382'>382</a>
 <a name='L383'></a><a href='#L383'>383</a>
 <a name='L384'></a><a href='#L384'>384</a>
-<a name='L385'></a><a href='#L385'>385</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L385'></a><a href='#L385'>385</a>
+<a name='L386'></a><a href='#L386'>386</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -710,23 +711,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1094,23 +1096,24 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUMapperHel
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    model.pipeline = device.getPipeline(model.pipelineHash);</span>
 &nbsp;
-    // todo handle removing a bindable
+    const bindables = <span class="cstat-no" title="statement not covered" >[];</span>
 <span class="cstat-no" title="statement not covered" >    if (model.UBO) {</span>
-<span class="cstat-no" title="statement not covered" >      model.bindGroup.addBindable(model.UBO);</span>
+<span class="cstat-no" title="statement not covered" >      bindables.push(model.UBO);</span>
     }
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    if (model.SSBO) {</span>
-<span class="cstat-no" title="statement not covered" >      model.bindGroup.addBindable(model.SSBO);</span>
+<span class="cstat-no" title="statement not covered" >      bindables.push(model.SSBO);</span>
     }
 &nbsp;
     // add texture BindGroupLayouts
 <span class="cstat-no" title="statement not covered" >    for (let t = <span class="cstat-no" title="statement not covered" >0;</span> t &lt; model.textureViews.length; t++) {</span>
-<span class="cstat-no" title="statement not covered" >      model.bindGroup.addBindable(model.textureViews[t]);</span>
+<span class="cstat-no" title="statement not covered" >      bindables.push(model.textureViews[t]);</span>
       const samp = <span class="cstat-no" title="statement not covered" >model.textureViews[t].getSampler();</span>
 <span class="cstat-no" title="statement not covered" >      if (samp) {</span>
-<span class="cstat-no" title="statement not covered" >        model.bindGroup.addBindable(samp);</span>
+<span class="cstat-no" title="statement not covered" >        bindables.push(samp);</span>
       }
     }
+<span class="cstat-no" title="statement not covered" >    model.bindGroup.setBindables(bindables);</span>
 &nbsp;
     // build VBO for this primitive
     // build the pipeline if needed
@@ -1216,7 +1219,7 @@ export default { newInstance, extend };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri May 21 2021 15:17:16 GMT+0000 (Coordinated Universal Time)
+                at Mon May 24 2021 19:15:41 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>
