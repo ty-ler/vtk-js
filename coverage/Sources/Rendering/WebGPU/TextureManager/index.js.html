@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">3.7% </span>
+                <span class="strong">3.64% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/54</span>
+                <span class='fraction'>2/55</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/29</span>
+                <span class='fraction'>0/30</span>
             </div>
         
             
@@ -201,9 +201,7 @@
 <a name='L142'></a><a href='#L142'>142</a>
 <a name='L143'></a><a href='#L143'>143</a>
 <a name='L144'></a><a href='#L144'>144</a>
-<a name='L145'></a><a href='#L145'>145</a>
-<a name='L146'></a><a href='#L146'>146</a>
-<a name='L147'></a><a href='#L147'>147</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L145'></a><a href='#L145'>145</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -213,7 +211,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -235,7 +233,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -259,7 +256,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -358,8 +354,8 @@ import vtkWebGPUTexture from 'vtk.js/Sources/Rendering/WebGPU/Texture';
 &nbsp;
 function <span class="fstat-no" title="function not covered" >requestMatches(</span>req1, req2) {
 <span class="cstat-no" title="statement not covered" >  if (req1.time !== req2.time) <span class="cstat-no" title="statement not covered" >return false;</span></span>
-<span class="cstat-no" title="statement not covered" >  if (req1.address !== req2.address) <span class="cstat-no" title="statement not covered" >return false;</span></span>
-  //  if (req1.format !== req2.format) return false;
+<span class="cstat-no" title="statement not covered" >  if (req1.nativeArray !== req2.nativeArray) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+<span class="cstat-no" title="statement not covered" >  if (req1.format !== req2.format) <span class="cstat-no" title="statement not covered" >return false;</span></span>
 <span class="cstat-no" title="statement not covered" >  return true;</span>
 }
 &nbsp;
@@ -381,9 +377,8 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUTextureMa
     // fill in values based on imageData if the request has it
 <span class="cstat-no" title="statement not covered" >    if (req.imageData) {</span>
 <span class="cstat-no" title="statement not covered" >      req.dataArray = req.imageData.getPointData().getScalars();</span>
-      // todo remove use of address and use hash and nativeArray
-<span class="cstat-no" title="statement not covered" >      req.address = req.imageData.getPointData().getScalars();</span>
-<span class="cstat-no" title="statement not covered" >      req.time = req.address.getMTime();</span>
+<span class="cstat-no" title="statement not covered" >      req.time = req.dataArray.getMTime();</span>
+<span class="cstat-no" title="statement not covered" >      req.nativeArray = req.dataArray.getData();</span>
       const dims = <span class="cstat-no" title="statement not covered" >req.imageData.getDimensions();</span>
 <span class="cstat-no" title="statement not covered" >      req.width = dims[0];</span>
 <span class="cstat-no" title="statement not covered" >      req.height = dims[1];</span>
@@ -406,10 +401,9 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUTextureMa
 &nbsp;
     // fill in values based on image if the request has it
 <span class="cstat-no" title="statement not covered" >    if (req.image) {</span>
-<span class="cstat-no" title="statement not covered" >      req.address = req.image;</span>
 <span class="cstat-no" title="statement not covered" >      req.time = 0;</span>
-<span class="cstat-no" title="statement not covered" >      req.width = req.address.width;</span>
-<span class="cstat-no" title="statement not covered" >      req.height = req.address.height;</span>
+<span class="cstat-no" title="statement not covered" >      req.width = req.image.width;</span>
+<span class="cstat-no" title="statement not covered" >      req.height = req.image.height;</span>
 <span class="cstat-no" title="statement not covered" >      req.depth = 1;</span>
 <span class="cstat-no" title="statement not covered" >      req.format = 'rgba8unorm';</span>
     }
@@ -436,7 +430,7 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUTextureMa
     });
 &nbsp;
     // fill the texture if we have data
-<span class="cstat-no" title="statement not covered" >    if (req.dataArray || req.nativeArray || req.image) {</span>
+<span class="cstat-no" title="statement not covered" >    if (req.nativeArray || req.image) {</span>
 <span class="cstat-no" title="statement not covered" >      newTex.writeImageData(req);</span>
     }
 &nbsp;
@@ -452,8 +446,8 @@ function <span class="fstat-no" title="function not covered" >vtkWebGPUTextureMa
 <span class="cstat-no" title="statement not covered" >      dabuffers.push({</span>
         request: {
           time: req.time,
-          address: req.address,
-          // format: req.format,
+          nativeArray: req.nativeArray,
+          format: req.format,
         },
         texture: newTex,
       });
@@ -502,7 +496,7 @@ export default { newInstance, extend };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon May 24 2021 19:26:14 GMT+0000 (Coordinated Universal Time)
+                at Tue May 25 2021 16:54:09 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>
