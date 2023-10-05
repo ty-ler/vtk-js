@@ -258,10 +258,26 @@ export interface vtkImageMapper extends vtkAbstractImageMapper {
 	getSlicingModeNormal(): number[];
 
 	/**
-	 * Set the slicing mode. 
-	 * @param {Number} mode The slicing mode.
+	 * Get the slicing mode. 
 	 */
-	setSlicingMode(mode: number): boolean;
+	getSlicingMode(): SlicingMode;
+
+	/**
+	 * Set the slicing mode. 
+	 * @param {SlicingMode} mode The slicing mode.
+	 */
+	setSlicingMode(mode: SlicingMode): boolean;
+
+	/**
+	 * Get the preference to use halfFloat representation of float
+	 */
+	getPreferSizeOverAccuracy(): boolean;
+
+	/**
+	 * Set the preference to use halfFloat representation of float
+	 * @param {Boolean} preferSizeOverAccuracy
+	 */
+	setPreferSizeOverAccuracy(preferSizeOverAccuracy: boolean): boolean;
 }
 
 /**

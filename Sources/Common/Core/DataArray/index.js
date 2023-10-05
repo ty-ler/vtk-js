@@ -8,22 +8,27 @@ const { DefaultDataType } = Constants;
 // ----------------------------------------------------------------------------
 // Global methods
 // ----------------------------------------------------------------------------
+const EPSILON = 1e-6;
 
 // Original source from https://www.npmjs.com/package/compute-range
 // Modified to accept type arrays
 function fastComputeRange(arr, offset, numberOfComponents) {
   const len = arr.length;
-  let min;
-  let max;
+  let min = Number.MAX_VALUE;
+  let max = -Number.MAX_VALUE;
   let x;
   let i;
 
-  if (len === 0) {
-    return { min: Number.MAX_VALUE, max: -Number.MAX_VALUE };
-  }
-  min = arr[offset];
-  max = min;
+  // find first non-NaN value
   for (i = offset; i < len; i += numberOfComponents) {
+    if (!Number.isNaN(arr[i])) {
+      min = arr[i];
+      max = min;
+      break;
+    }
+  }
+
+  for (; i < len; i += numberOfComponents) {
     x = arr[i];
     if (x < min) {
       min = x;
@@ -318,6 +323,24 @@ function vtkDataArray(publicAPI, model) {
   publicAPI.insertNextTuples = (tuples) => {
     const idx = model.size / model.numberOfComponents;
     return publicAPI.insertTuples(idx, tuples);
+  };
+
+  publicAPI.findTuple = (tuple, precision = EPSILON) => {
+    for (let i = 0; i < model.size; i += model.numberOfComponents) {
+      if (Math.abs(tuple[0] - model.values[i]) <= precision) {
+        let match = true;
+        for (let j = 1; j < model.numberOfComponents; ++j) {
+          if (Math.abs(tuple[j] - model.values[i + j]) > precision) {
+            match = false;
+            break;
+          }
+        }
+        if (match) {
+          return i / model.numberOfComponents;
+        }
+      }
+    }
+    return -1;
   };
 
   publicAPI.getTuple = (idx, tupleToFill = []) => {
